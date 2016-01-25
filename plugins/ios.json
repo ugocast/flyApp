@@ -17,6 +17,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -38,10 +42,6 @@
                         },
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -72,6 +72,9 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.flyapp799970"
         },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.flyapp799970"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.flyapp799970"
         },
@@ -85,9 +88,6 @@
             "PACKAGE_NAME": "com.ionicframework.flyapp799970"
         },
         "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.ionicframework.flyapp799970"
-        },
-        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.flyapp799970"
         }
     },
