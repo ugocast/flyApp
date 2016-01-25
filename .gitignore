@@ -1,0 +1,6 @@
+# Archivos basura Mac
+.DS_Store
+# build app
+/platforms
+
+
