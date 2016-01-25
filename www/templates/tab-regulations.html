@@ -1,0 +1,65 @@
+<ion-view>
+  <ion-nav-title>
+    Regulaciones
+  </ion-nav-title>
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <!--<ion-list>
+    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+    <img ng-src="{{chat.face}}">
+    <h2>{{chat.name}}</h2>
+    <p>{{chat.lastText}}</p>
+    <i class="icon ion-chevron-right icon-accessory"></i>
+
+    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+    Delete
+  </ion-option-button>
+</ion-item>
+</ion-list>-->
+{{placeId}}
+    <div class="list card" ng-repeat="regulation in regulations">
+
+      <div class="item">
+        <h2>{{regulation.title}}</h2>
+      </div>
+
+      <div class="item item-text-wrap">
+        <ul class="list">
+          <li class="item">
+            <strong>Tipo de regulacion :
+            </strong>
+            <span>{{regulation.fishing_regulation_type}}</span>
+          </li>
+          <li class="item">
+            <strong>Especies :
+            </strong>
+            <span ng-repeat="fish_type in regulation.apply_to_fish_type">
+              {{fish_type}}{{$last ? "" : ","}}
+            </span>
+          </li>
+          <li class="item">
+            <strong>Unidades permitidas :
+            </strong>
+            <span>{{regulation.fish_units_permitted}}</span>
+          </li>
+          <li class="item">
+            <span>{{regulation.message}}</span>
+          </li>
+          <li class="item">
+            <strong>Multa :
+            </strong>
+            <span>{{regulation.penalty_fee}}</span>
+          </li>
+          <li class="item">
+            <strong>Temporada sin extracion :
+            </strong>
+            <span ng-repeat="without_extraction in regulation.without_extraction track by $index">
+              {{without_extraction}}{{$last ? "" : " / "}}
+            </span>
+          </li>
+        </div>
+
+      </div>
+
+    </ion-content>
+  </ion-view>

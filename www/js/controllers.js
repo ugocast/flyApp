@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('PlacesCtrl', function($scope, Places) {
+.controller('PlacesCtrl', function($scope, $rootScope, Places) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -23,7 +23,39 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaceDetailCtrl', function($scope, $stateParams, Place, $ionicSlideBoxDelegate,$ionicScrollDelegate,$cordovaInAppBrowser) {
+.controller('GeneralRegulationCtrl', function($scope, $rootScope, GeneralRegulations) {
+
+  GeneralRegulations.query(function(data) {
+    $scope.regulations = data;
+
+  });
+
+  $scope.doRefresh = function() {
+    GeneralRegulations.query(function(data) {
+      $scope.regulations = data;
+      $scope.$broadcast('scroll.refreshComplete');
+    })
+
+  };
+
+})
+
+.controller('BackCtrl', function($scope, $rootScope, $ionicHistory, $location, $log) {
+
+  $scope.myGoBack = function() {
+    $log.log($location.path());
+    if ($location.path() != "/tab/regulations") {
+      
+      $rootScope.placeId = null;
+    }
+    $ionicHistory.goBack();
+  };
+})
+
+.controller('PlaceDetailCtrl', function($scope, $rootScope, $stateParams, Place, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser) {
+
+  $rootScope.placeId = $stateParams.placeId;
+
   Place.query({
     placeId: $stateParams.placeId
   }, function(data) {
@@ -33,26 +65,26 @@ angular.module('starter.controllers', [])
   });
 
   var options = {
-       location: 'yes',
-       clearcache: 'yes',
-       toolbar: 'yes'
-     };
+    location: 'yes',
+    clearcache: 'yes',
+    toolbar: 'yes'
+  };
 
 
-     $scope.openLink = function(link) {
+  $scope.openLink = function(link) {
 
-       $cordovaInAppBrowser.open(link, '_system', options)
-         .then(function(event) {
-           // success
-           $cordovaInAppBrowser.close();
-         })
-         .catch(function(event) {
-           // error
-           $cordovaInAppBrowser.close();
+    $cordovaInAppBrowser.open(link, '_system', options)
+      .then(function(event) {
+        // success
+        $cordovaInAppBrowser.close();
+      })
+      .catch(function(event) {
+        // error
+        $cordovaInAppBrowser.close();
 
-         });
+      });
 
-     };
+  };
 
 
 

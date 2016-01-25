@@ -10,234 +10,233 @@ The Friends service returns an array of friend data
   </ion-nav-title>
   <ion-content class="padding">
     <div class="list card">
-
       <div class="item item-body">
-
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
           <ion-slide ng-repeat="placeImage in place.url_images_detail">
             <img class="full-image" ng-src="img/{{placeImage}}">
           </ion-slide>
         </ion-slide-box>
       </div>
-
     </div>
-
     <div class="list card">
-
-      <div class="item item-avatar">
+      <div class="item">
         <h2 class="text-left">
           <strong>Descripcion</strong>
         </h2>
       </div>
-
       <div class="item item-body">
         <p>{{place.description}}</p>
       </div>
-
     </div>
-
     <div class="list card">
-      <div class="item item-avatar">
+      <div class="item">
         <h2 class="text-left">
           <strong>Informacion</strong>
         </h2>
       </div>
-
       <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
-            <strong>Ciudad :</strong>
-            <span>{{place.city}}</span>
-          </li>
-
-          <li class="item">
-            <strong>Cuenca :</strong>
-            <span>{{place.watershed}}</span>
-          </li>
-          <li class="item">
-            <strong>Cuerpo o curso de Agua :</strong>
-            <span>{{place.body_of_water_type}}</span>
-          </li>
-          <li class="item">
-            <strong>Caudal :</strong>
-            <span>{{place.flow}}</span>
-          </li>
-          <li class="item">
-            <strong>Profundidad :</strong>
-            <span>{{place.depth}}</span>
-          </li>
-          <li class="item">
-            <strong>Turbiedad :</strong>
-            <span>{{place.turbidity}}</span>
-          </li>
-          <li class="item">
-            <strong>Temperatura promedio :</strong>
-            <span ng-repeat="average_temperature in place.average_temperature">
-              {{average_temperature}}{{$last ? "" : ","}}
-            </span>
-          </li>
-          <li class="item">
-            <strong>Temperatura promedio del agua :</strong>
-            <span ng-repeat="average_water_temperature in place.average_water_temperature">
-              {{average_water_temperature}}{{$last ? "" : ","}}
-            </span>
-          </li>
-
-          <li class="item">
-            <strong>Tipos de fondo :</strong>
-            <span ng-repeat="funds in place.funds">
-              {{funds}}{{$last ? "" : ","}}
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="list card">
-      <div class="item item-avatar">
-        <h2 class="text-left">
-          <strong>Accesos</strong>
-        </h2>
-      </div>
-
-      <div class="item item-text-wrap">
-
         <div class="list list-inset">
-
-          <div class="item" ng-repeat="access in place.access">
-            <h2>{{access.title}}</h2>
-            <p>{{access.desciption}}</p>
-            <br/>
+          <div class="item">
             <p>
-              <strong>Tipo de acceso vehicular :</strong>
-              <span ng-repeat="vehicle_access in access.vehicle_access">
-                {{vehicle_access}}{{$last ? "" : ","}}
+              <strong>Ciudad :</strong>
+              <span>{{place.city}}</span>
+            </p>
+            <p>
+              <strong>Cuenca :</strong>
+              <span>{{place.watershed}}</span>
+            </p>
+            <p>
+              <strong>Cuerpo o curso de Agua :</strong>
+              <span>{{place.body_of_water_type}}</span>
+            </p>
+            <p>
+              <strong>Caudal :</strong>
+              <span>{{place.flow}}</span>
+            </p>
+            <p>
+              <strong>Profundidad :</strong>
+              <span>{{place.depth}}</span>
+            </p>
+            <p>
+              <strong>Turbiedad :</strong>
+              <span>{{place.turbidity}}</span>
+            </p>
+            <p>
+              <strong>Temperatura promedio :</strong>
+              <span ng-repeat="average_temperature in place.average_temperature">
+                {{average_temperature}}{{$last ? "" : ","}}
               </span>
             </p>
             <p>
-              <strong>Tipo de acceso peatonal :</strong>
-              <span ng-repeat="pedestrian_access in access.pedestrian_access">
-                {{pedestrian_access}}{{$last ? "" : ","}}
+              <strong>Temperatura promedio del agua :</strong>
+              <span ng-repeat="average_water_temperature in place.average_water_temperature">
+                {{average_water_temperature}}{{$last ? "" : ","}}
               </span>
             </p>
             <p>
-              <button class="button button-small button-light">
-                Ver en Mapa
-              </button>
+              <strong>Tipos de fondo :</strong>
+              <span ng-repeat="funds in place.funds">
+                {{funds}}{{$last ? "" : ","}}
+              </span>
             </p>
           </div>
-
         </div>
-
       </div>
     </div>
-
     <div class="list card">
-      <div class="item item-avatar">
-        <h2 class="text-left">
-          <strong>Flora y Fauna</strong>
-        </h2>
-      </div>
-
-      <div class="item item-text-wrap">
-        <ul class="list">
-          <li class="item">
-            <strong>Tipo de vegetación :</strong>
-            <span ng-repeat="vegetation in place.vegetation">
-              {{vegetation}}{{$last ? "" : ","}}
-            </strong>
-          </li>
-          <li class="item">
-            <strong>Fauna asociada :</strong>
-            <span ng-repeat="fauna in place.fauna">
-              {{fauna}}{{$last ? "" : ","}}
-            </strong>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="list card">
-
-      <div class="item item-avatar">
+      <div class="item">
         <h2 class="text-left">
           <strong>Principales especies</strong>
         </h2>
       </div>
-
       <div class="item item-body">
-
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
           <ion-slide ng-repeat="fish in place.fishes">
-            <img class="full-image" ng-src="img/{{fish.url_images_front}}">
-            <p>{{fish.name}}</p>
+            <div class="list card">
+              <div class="item">
+                <h3>{{fish.name}}</h3>
+                <h4>{{fish.scientific_name}}</h4>
+              </div>
+              <div class="item item-image">
+                <img class="full-image" ng-src="img/{{fish.url_images_front}}">
+              </div>
+              <div class="item item-body">
+                {{fish.description}}
+                <p>
+                  <strong>Peso promedio :</strong>
+                  {{fish.average_weight}}
+                </p>
+                <p>
+                  <strong>Tamaño promedio :</strong>
+                  {{fish.average_size}}
+                </p>
+              </div>
+            </div>
           </ion-slide>
         </ion-slide-box>
       </div>
-
     </div>
-
     <div class="list card">
-
-      <div class="item item-avatar">
-        <h2 class="text-left">
-          <strong>Principales moscas de pescas</strong>
-        </h2>
+      <div class="item">
+        <h3 class="text-left">
+          <strong>Principales insectos</strong>
+        </h3>
       </div>
-
       <div class="item item-body">
-
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="insect in place.insects">
+            <div class="list card">
+              <div class="item">
+                <h2>{{insect.name}}</h2>
+                <h4>{{insect.insect_type}}</h4>
+              </div>
+              <div class="item item-image">
+                <img class="full-image" ng-src="img/{{insect.url_images_front}}">
+              </div>
+              <div class="item item-body">
+                {{insect.description}}
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item">
+        <h3 class="text-left">
+          <strong>Principales moscas de pescas</strong>
+        </h3>
+      </div>
+      <div class="item item-body">
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
           <ion-slide ng-repeat="flyFishing in place.flies">
-            <img class="full-image" ng-src="img/{{flyFishing.url_images_front}}">
-            <p>{{flyFishing.name}}</p>
+            <div class="list card">
+              <div class="item">
+                <h2>{{flyFishing.name}}</h2>
+                <h4>{{flyFishing.fly_type}}</h4>
+              </div>
+              <div class="item item-image">
+                <img class="full-image" ng-src="img/{{flyFishing.url_images_front}}">
+              </div>
+              <div class="item item-body">
+                {{flyFishing.description}}
+              </div>
+            </div>
           </ion-slide>
         </ion-slide-box>
       </div>
     </div>
-
     <div class="list card">
-
-      <div class="item item-avatar">
+      <div class="item">
         <h2 class="text-left">
-          <strong>Normativas</strong>
+          <strong>Flora y Fauna</strong>
         </h2>
       </div>
-
-      <div class="item item-body">
-        <p>
-          ...
-        </p>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <p>
+            <strong>Tipo de vegetación :</strong>
+            <span ng-repeat="vegetation in place.vegetation">
+              {{vegetation}}{{$last ? "" : ","}}
+            </strong>
+          </p>
+          <p>
+            <strong>Fauna asociada :</strong>
+            <span ng-repeat="fauna in place.fauna">
+              {{fauna}}{{$last ? "" : ","}}
+            </strong>
+          </p>
+        </div>
       </div>
-
     </div>
-
     <div class="list card">
-
-      <div class="item item-avatar">
+      <div class="item">
+        <h2 class="text-left">
+          <strong>Accesos</strong>
+        </h2>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="item" ng-repeat="access in place.access">
+          <h2>{{access.title}}</h2>
+          <p>{{access.desciption}}</p>
+          <br/>
+          <p>
+            <strong>Tipo de acceso vehicular :</strong>
+            <span ng-repeat="vehicle_access in access.vehicle_access">
+              {{vehicle_access}}{{$last ? "" : ","}}
+            </span>
+          </p>
+          <p>
+            <strong>Tipo de acceso peatonal :</strong>
+            <span ng-repeat="pedestrian_access in access.pedestrian_access">
+              {{pedestrian_access}}{{$last ? "" : ","}}
+            </span>
+          </p>
+            <button class="button button-small button-light">
+              Ver en Mapa
+            </button>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item">
         <h2 class="text-left">
           <strong>Alrededores</strong>
         </h2>
       </div>
-
       <div class="item item-body">
         <p>
           ...
         </p>
       </div>
-
     </div>
-
     <div class="list card">
-
-      <div class="item item-avatar">
+      <div class="item">
         <h2 class="text-left">
           <strong>Publicidad</strong>
         </h2>
       </div>
-
       <div class="item item-body">
-
         <div class="list">
           <a class="item item-thumbnail-left" ng-repeat="advertisement in place.advertisements" ng-click="openLink(advertisement.link)">
             <img class="full-image" ng-src="{{advertisement.url_image_logo}}">
@@ -245,10 +244,7 @@ The Friends service returns an array of friend data
             <p>{{advertisement.description}}</p>
           </a>
         </div>
-
       </div>
-
     </div>
-
   </ion-content>
 </ion-view>
