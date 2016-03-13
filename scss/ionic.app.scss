@@ -1,19 +1,11 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
 
-For example, you might change some of the default colors:
+$custom-nav:                      #4F5B4B;
+$custom-nav-color:                #ffffff;
 
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
+$base-background-color:           #ffffff !default;
+$base-color:                      #666666 !default;
+$font-size-default:               15px;
+$line-height-default:             24px;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -21,3 +13,248 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+/* layout front tabs places */
+
+.custom-bar{
+  background-color: $custom-nav;
+  color: $custom-nav-color;
+  background-image: none;
+}
+
+.place-info{
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  .left{
+    text-align: left;
+    padding: 0;
+    top: 5px;
+    position: relative;
+    h2{
+      padding: 0;
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  .right{
+    float: right;
+    text-align: right;
+    .rating{
+      background-color: #F56C0E;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+  }
+}
+
+.place-details{
+  padding: 10px 10px;
+}
+
+.item-icon-left{
+  padding-left: 15px;
+  color: #4A90E2!important;
+  border-top: 1px dashed #cecece;
+}
+
+/* Tips */
+
+.tips{
+  background-color: #FCF27B;
+  margin: 10px;
+  border-radius: 3px;
+  padding: 10px 10px 40px 10px;
+}
+
+.tip-ico{
+  background-color: #fff;
+  color: #222;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.tip-info{
+  padding: 0 50px;
+  text-align: center;
+  margin: -20px 20px;
+}
+
+.button-tip{
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* Banners */
+
+.banner{
+  background-color: #A5B3B9;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 3px;
+  min-height: 150px;
+}
+/* icons */
+
+.custom-icons{
+  font-size: 24px;
+  color: #34AA05;
+  vertical-align: middle;
+  display: inline-block;
+  padding-right: 5px;
+  position: relative;
+  top: -1px;
+}
+
+.ico-images-details{
+  font-size: 24px;
+  color: #4A90E2;
+  vertical-align: middle;
+  display: inline-block;
+  padding-right: 10px;
+  position: relative;
+  top: -3px;
+}
+
+.icons-details{
+  text-align: center;
+}
+
+.details-icons{
+  font-size: 24px;
+  color: #818589;
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  text-align: center;
+  top: 3px;
+}
+
+.icons-info{
+  padding-left: 20px;
+}
+
+.detail-icon{
+  color: #fff;
+  font-size: 32px;
+  display: inline-block;
+  position: relative;
+  top: -7px;
+}
+
+.ion-levels{
+  font-size: 32px;
+  color: #fff;
+}
+/* info tabs details */
+
+.header-details{
+  border-bottom: 3px solid #34AA00;
+  h2{
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #3B453B;
+    font-weight: 600;
+
+  }
+}
+
+.info-titles{
+  margin-bottom: 25px;
+  h3{
+    color: #4A90E2;
+    font-weight: 500;
+  }
+}
+
+/* Fonts */
+
+p{
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  color: $base-color;
+
+}
+
+strong{
+  color: #4A90E2;
+  font-weight: 500;
+}
+
+/* Access */
+
+.access-info{
+  margin: 20px 0;
+  border-bottom: 1px dashed #cecece;
+  padding: 20px 0;
+  h2{
+    color: #222;
+    font-weight: 600;
+  }
+}
+
+.access-btn{
+  margin: 25px 0;
+  padding: 3px 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.near-places{
+  margin: 10px 0;
+  padding: 0;
+}
+
+
+/* Reviews */
+.reviews-body{
+  margin: 15px;
+  border-bottom: 1px dashed #cecece;
+  padding-bottom: 10px;
+}
+
+.reviews-body-last{
+  margin: 15px;
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
+.custom-button{
+  border-radius: 3px;
+  font-weight: 500;
+  background-color: #F56B00;
+}
+
+.item-avatar{
+  border: none;
+  h2{
+    font-weight: 500;
+    color: #222;
+  }
+  h3{
+    font-weight: normal;
+    color: #B6B6B6;
+  }
+}
+
+/* Slider */
+
+.slider-pager{
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+.avatar-body{
+  padding: 5px 15px 15px 15px;
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}

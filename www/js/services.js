@@ -2,7 +2,7 @@ angular.module('starter.services', ['ngResource'])
 
 .factory('Places', ['$resource',
   function($resource) {
-    return $resource('https://apiflyapp-flyapp.rhcloud.com/api/Regions/XI/places', {}, {
+    return $resource('http://0.0.0.0:3000/api/FirstLevels?filter[include]=places&filter[where][google_place_id]=:place_id', {}, {
       query: {
         method: 'GET',
         headers: {
@@ -14,7 +14,7 @@ angular.module('starter.services', ['ngResource'])
   }
 ]).factory('Place', ['$resource',
   function($resource) {
-    return $resource('https://apiflyapp-flyapp.rhcloud.com/api/places/:placeId?filter[include]=informations&filter[include]=fishes&filter[include]=flies&filter[include]=access&filter[include]=map&filter[include]=advertisements&filter[include]=insects', {}, {
+    return $resource('http://0.0.0.0:3000/api/places/:placeId?filter[include]=fishes&filter[include]=flies&filter[include]=access&filter[include]=advertisements&filter[include]=insects', {}, {
       query: {
         method: 'GET',
         headers: {

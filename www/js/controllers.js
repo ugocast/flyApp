@@ -9,13 +9,19 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  Places.query(function(data) {
-    $scope.places = data;
-  });
+  Places.query({
+    place_id: 'ChIJEW0Xuf2kir0R8_7BupS9_Ms'
+  }, function(data) {
+    $scope.places = data[0].places;
+    $scope.$broadcast('scroll.refreshComplete');
+  })
 
   $scope.doRefresh = function() {
-    Places.query(function(data) {
-      $scope.places = data;
+
+    Places.query({
+      place_id: "ChIJEW0Xuf2kir0R8_7BupS9_Ms"
+    }, function(data) {
+      $scope.places = data[0].places;
       $scope.$broadcast('scroll.refreshComplete');
     })
 
@@ -38,18 +44,6 @@ angular.module('starter.controllers', [])
 
   };
 
-})
-
-.controller('BackCtrl', function($scope, $rootScope, $ionicHistory, $location, $log) {
-
-  $scope.myGoBack = function() {
-    $log.log($location.path());
-    if ($location.path() != "/tab/regulations") {
-      
-      $rootScope.placeId = null;
-    }
-    $ionicHistory.goBack();
-  };
 })
 
 .controller('PlaceDetailCtrl', function($scope, $rootScope, $stateParams, Place, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser) {

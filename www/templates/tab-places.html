@@ -1,10 +1,14 @@
-<ion-view>
+<ion-view hide-tabs>
   <ion-nav-title>
-    Patagonia
+    <div class="bar bar-header">
+      <div class="title">Patagonia de Chile</div>
+      <a class="button button-clear" href="#/tab/regulations">
+        <i class="ion-levels navbar-icon"></i>
+      </a>
+    </div>
   </ion-nav-title>
   <ion-content>
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
-    </ion-refresher>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <!--<ion-list>
     <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
     <img ng-src="{{chat.face}}">
@@ -17,23 +21,41 @@
   </ion-option-button>
 </ion-item>
 </ion-list>-->
-
     <div class="list card" ng-repeat="place in places">
-
-      <div class="item item-avatar">
-        <img ng-src="img/{{place.url_images_front}}">
-        <h2>{{place.name}}</h2>
-      </div>
-
       <div class="item item-image">
-        <img ng-src="img/{{place.url_images_front}}">
+        <img ng-src="{{place.url_images_front}}">
+        <div class="row place-info">
+          <div class="left col-80">
+            <h2>{{place.name}}</h2>
+          </div>
+          <!--<div class="col right">
+            <span class="rating">4.8</span>
+          </div>-->
+        </div>
       </div>
-
-      <a class="item item-icon-left assertive" href="#/tab/places/{{place.id}}">
-        <i class="icon ion-map"></i>Detalles
+      <div class="row place-details">
+        <div class="col">
+          <i class="icon ion-ios-sunny custom-icons"></i>
+          Bosque, Montaña</div>
+        <div class="col">
+          <i class="icon ion-android-car custom-icons"></i>
+          500 Kms Temuco</div>
+      </div>
+      <a class="item item-icon-left links" href="#/tab/places/{{place.id}}">
+        <i class="ion-images ico-images-details"></i>Detalles
       </a>
-
     </div>
 
+    <div class="tips">
+      <div class="col">
+        <span class="tip-ico">TIP</span>
+      </div>
+      <div class="tip-info">
+        Acá podemos incluir algun tipo de tips o notificación de la aplicación
+        <button class="button button-block button-dark button-tip">NOTIFICARME</button>
+      </div>
+    </div>
+
+    <div class="banner"></div>
   </ion-content>
 </ion-view>
