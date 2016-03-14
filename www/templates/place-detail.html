@@ -19,7 +19,7 @@ The Friends service returns an array of friend data
                 <h2>{{place.name}}</h2>
               </div>
               <div class="col">
-                <a href="">
+                <a href="#/tab/map">
                   <i class="ion-map detail-icon"></i>
                 </a>
               </div>
@@ -67,167 +67,158 @@ The Friends service returns an array of friend data
             <strong>Medio Ambiente :</strong>
             <span ng-repeat="environments_description in place.environments_description">
               {{environments_description}}
-          </p>
-          <!--<p>
+            </p>
+            <!--<p>
             <i class="ion-leaf details-icons"></i>
             <strong>Fauna asociada :</strong>
             <span ng-repeat="fauna in place.fauna">
               {{fauna}}{{$last ? "" : ","}}
             </strong>
           </p>-->
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item header-details">
-        <h2 class="text-left">
-          Informacion
-        </h2>
-      </div>
-      <div class="item item-text-wrap">
-        <div class="">
-          <div class="item">
-            <p>
-              <i class="ion-android-pin details-icons"></i>
-              <strong>Ciudad :</strong>
-              <span>{{place.city}}</span>
-            </p>
-            <p>
-              <i class="ion-android-map details-icons"></i>
-              <strong>Cuenca :</strong>
-              <span>{{place.watershed}}</span>
-            </p>
-            <p>
-              <i class="ion-shuffle details-icons"></i>
-              <strong>Cuerpo o curso de Agua :</strong>
-              <span>{{place.body_of_water_type}}</span>
-            </p>
-            <p>
-              <i class="ion-waterdrop details-icons"></i>
-              <strong>Caudal :</strong>
-              <span>{{place.flow}}</span>
-            </p>
-            <p>
-              <i class="ion-arrow-down-c details-icons"></i>
-              <strong>Profundidad :</strong>
-              <span>{{place.depth}}</span>
-            </p>
-            <p>
-              <i class="ion-flash details-icons"></i>
-              <strong>Turbiedad :</strong>
-              <span>{{place.turbidity}}</span>
-            </p>
-            <p>
-              <i class="ion-thermometer details-icons"></i>
-              <strong>Tº promedio :</strong>
-              <span ng-repeat="average_temperature in place.average_temperature">
-                {{average_temperature}}{{$last ? "" : ","}}
-              </span>
-            </p>
-            <p>
-              <i class="ion-thermometer details-icons"></i>
-              <strong>Tº promedio del agua :</strong>
-              <span ng-repeat="average_water_temperature in place.average_water_temperature">
-                {{average_water_temperature}}{{$last ? "" : ","}}
-              </span>
-            </p>
-            <p>
-              <i class="ion-ios-analytics details-icons"></i>
-              <strong>Tipos de fondo :</strong>
-              <span ng-repeat="funds in place.funds">
-                {{funds}}{{$last ? "" : ","}}
-              </span>
-            </p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tips">
-      <div class="col">
-        <span class="tip-ico">TIP</span>
-      </div>
-      <div class="tip-info">
-        Acá podemos incluir algun tipo de tips o notificación de la aplicación
-        <button class="button button-block button-dark button-tip">NOTIFICARME</button>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item header-details">
-        <h2 class="text-left">
-          Principales especies
-        </h2>
-      </div>
-      <div class="item item-body">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide ng-repeat="fish in place.fishes">
-            <div class="">
-              <div class="info-titles">
-                <p>
-                  <strong>{{fish.name}}:</strong>
-                  {{fish.scientific_name}}</p>
-              </div>
-              <div class="item-image">
-                <img class="full-image" ng-src="{{fish.url_images_front}}">
-              </div>
-              <div class="item-body">
-                <p>{{fish.description}}</p>
-                <p>
-                  <i class="ion-android-archive details-icons"></i>
-                  <strong>Peso promedio :</strong>
-                  {{fish.average_weight}}
-                </p>
-                <p>
-                  <i class="ion-crop details-icons"></i>
-                  <strong>Tamaño promedio :</strong>
-                  {{fish.average_size}}
-                </p>
-              </div>
-            </div>
-          </ion-slide>
-        </ion-slide-box>
-      </div>
-    </div>
-
-    <div class="list card">
-      <div class="item header-details">
-        <h2 class="text-left">
-          Accesos
-        </h2>
-      </div>
-      <div class="item item-text-wrap">
-        <div class="row access-info" ng-repeat="access in place.access">
-          <div class="col">
-            <img ng-src="img/front/ico-access.png" width="35" height="35">
-          </div>
-          <div class="col-80">
-            <h2>{{access.title}}</h2>
-            <p>{{access.desciption}}</p>
-            <br/>
-            <p>
-              <i class="ion-android-car details-icons"></i>
-              <strong>Tipo de acceso vehicular :</strong>
-              <span ng-repeat="vehicle_access in access.vehicle_access">
-                {{vehicle_access}}{{$last ? "" : ","}}
-              </span>
-            </p>
-            <p>
-              <i class="ion-android-walk details-icons"></i>
-              <strong>Tipo de acceso peatonal :</strong>
-              <span ng-repeat="pedestrian_access in access.pedestrian_access">
-                {{pedestrian_access}}{{$last ? "" : ","}}
-              </span>
-            </p>
-            <div class="">
-              <button class="button button-small button-dark access-btn">
-                Ver en Mapa
-              </button>
+      <div class="list card">
+        <div class="item header-details">
+          <h2 class="text-left">
+            Informacion
+          </h2>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="">
+            <div class="item">
+              <p>
+                <i class="ion-waterdrop details-icons"></i>
+                <strong>Caudal :</strong>
+                <span>{{place.flow}}</span>
+                mts2/seg
+              </p>
+              <p>
+                <i class="ion-arrow-down-c details-icons"></i>
+                <strong>Profundidad :</strong>
+                <span>{{place.depth}}</span>
+                mts
+              </p>
+              <p>
+                <i class="ion-flash details-icons"></i>
+                <strong>Turbiedad :</strong>
+                <span>{{place.turbidity}}</span>
+              </p>
+              <p>
+                <i class="ion-thermometer details-icons"></i>
+                <strong>Tº Ambiente :</strong>
+                <span>
+                  {{wheater.main.temp}}
+                </span>
+              </p>
+              <p>
+                <i class="ion-thermometer details-icons"></i>
+                <strong>Tº promedio del agua :</strong>
+                <span ng-repeat="average_water_temperature in place.average_water_temperature">
+                  {{average_water_temperature}}{{$last ? "" : ","}}
+                </span>
+              </p>
+              <p>
+                <i class="ion-paper-airplane details-icons"></i>
+                <strong>Velocidad del viento :</strong>
+                <span>
+                  {{wheater.wind.speed}}
+                  mts/seg
+                </span>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="tips">
+        <div class="col">
+          <span class="tip-ico">TIP</span>
+        </div>
+        <div class="tip-info">
+          Acá podemos incluir algun tipo de tips o notificación de la aplicación
+          <button class="button button-block button-dark button-tip">NOTIFICARME</button>
+        </div>
+      </div>
+      <div class="list card">
+        <div class="item header-details">
+          <h2 class="text-left">
+            Principales especies
+          </h2>
+        </div>
+        <div class="item item-body">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="fish in place.fishes">
+              <div class="">
+                <div class="info-titles">
+                  <p>
+                    <strong>{{fish.name}}:</strong>
+                    {{fish.scientific_name}}</p>
+                </div>
+                <div class="item-image">
+                  <img class="full-image" ng-src="{{fish.url_images_front}}">
+                </div>
+                <div class="item-body">
+                  <p>{{fish.description}}</p>
+                  <p>
+                    <i class="ion-android-archive details-icons"></i>
+                    <strong>Peso promedio :</strong>
+                    {{fish.average_weight}}
+                  </p>
+                  <p>
+                    <i class="ion-crop details-icons"></i>
+                    <strong>Tamaño promedio :</strong>
+                    {{fish.average_size}}
+                  </p>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slide-box>
+        </div>
+      </div>
 
-  <!--  <div class="list card">
+      <div class="list card">
+        <div class="item header-details">
+          <h2 class="text-left">
+            Accesos
+          </h2>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="row access-info" ng-repeat="access in place.access">
+            <div class="col">
+              <img ng-src="img/front/ico-access.png" width="35" height="35">
+            </div>
+            <div class="col-80">
+              <h2>{{access.title}}</h2>
+              <p>{{access.desciption}}</p>
+              <br/>
+              <p>
+                <i class="ion-android-car details-icons"></i>
+                <strong>Tipo de acceso vehicular :</strong>
+                <span ng-repeat="vehicle_access in access.vehicle_access">
+                  {{vehicle_access}}{{$last ? "" : ","}}
+                </span>
+              </p>
+              <p>
+                <i class="ion-android-walk details-icons"></i>
+                <strong>Tipo de acceso peatonal :</strong>
+                <span ng-repeat="pedestrian_access in access.pedestrian_access">
+                  {{pedestrian_access}}{{$last ? "" : ","}}
+                </span>
+              </p>
+              <div class="">
+                <button class="button button-small button-dark access-btn">
+                  Ver en Mapa
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map_canvas">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"></ui-gmap-google-map>
+      </div>
+
+      <!--  <div class="list card">
       <div class="item header-details">
         <h2 class="text-left">
           Alrededores
@@ -290,8 +281,8 @@ The Friends service returns an array of friend data
         </div>
       </div>
     </div>-->
-    <!--Hola!, acá comento los insectos-->
-    <!-- <div class="list card">
+      <!--Hola!, acá comento los insectos-->
+      <!-- <div class="list card">
       <div class="item header-details">
         <h2 class="text-left">
           Principales insectos
@@ -316,9 +307,9 @@ The Friends service returns an array of friend data
       </div>
     </div> -->
 
-    <!--Hola!, acá esta comentado las moscas-->
+      <!--Hola!, acá esta comentado las moscas-->
 
-    <!-- <div class="list card">
+      <!-- <div class="list card">
       <div class="item header-details">
         <h2 class="text-left">
           Principales moscas de pescas
@@ -342,5 +333,5 @@ The Friends service returns an array of friend data
         </ion-slide-box>
       </div>
     </div> -->
-</ion-content>
-</ion-view>
+    </ion-content>
+  </ion-view>

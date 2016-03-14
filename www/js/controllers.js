@@ -46,40 +46,91 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaceDetailCtrl', function($scope, $rootScope, $stateParams, Place, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser) {
+.controller('PlaceDetailCtrl', function($scope, $rootScope, $stateParams, Place, Wheater, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser, $cordovaGeolocation) {
 
-  $rootScope.placeId = $stateParams.placeId;
+    $rootScope.placeId = $stateParams.placeId;
 
-  Place.query({
-    placeId: $stateParams.placeId
-  }, function(data) {
-    $scope.place = data;
-    $ionicScrollDelegate.resize();
-    $ionicSlideBoxDelegate.update();
-  });
-
-  var options = {
-    location: 'yes',
-    clearcache: 'yes',
-    toolbar: 'yes'
-  };
-
-
-  $scope.openLink = function(link) {
-
-    $cordovaInAppBrowser.open(link, '_system', options)
-      .then(function(event) {
-        // success
-        $cordovaInAppBrowser.close();
-      })
-      .catch(function(event) {
-        // error
-        $cordovaInAppBrowser.close();
-
+    Place.query({
+      placeId: $stateParams.placeId
+    }, function(data) {
+      $scope.place = data;
+      Wheater.query({
+        lat: $scope.place.coordinates[0].lat,
+        long: $scope.place.coordinates[0].lng
+      }, function(data) {
+        $scope.wheater = data;
       });
 
-  };
+      $ionicScrollDelegate.resize();
+      $ionicSlideBoxDelegate.update();
+    });
+
+    var options = {
+      location: 'yes',
+      clearcache: 'yes',
+      toolbar: 'yes'
+    };
+
+
+    $scope.openLink = function(link) {
+
+      $cordovaInAppBrowser.open(link, '_system', options)
+        .then(function(event) {
+          // success
+          $cordovaInAppBrowser.close();
+        })
+        .catch(function(event) {
+          // error
+          $cordovaInAppBrowser.close();
+
+        });
+
+    };
 
 
 
-})
+  })
+  .controller('MapCtrl', function($scope, $rootScope, $stateParams, Place, Wheater, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser, $cordovaGeolocation) {
+
+    $scope.map = {
+      center: {
+        latitude: 40.1451,
+        longitude: -99.6680
+      },
+      zoom: 8
+    };
+    $scope.options = {
+      scrollwheel: true
+    };
+    $scope.markers = []
+      // get position of user and then set the center of the map to that position
+    $cordovaGeolocation
+      .getCurrentPosition()
+      .then(function(position) {
+        var lat = position.coords.latitude
+        var long = position.coords.longitude
+        $scope.map = {
+          center: {
+            latitude: lat,
+            longitude: long
+          },
+          zoom: 16
+        };
+        //just want to create this loop to make more markers
+        for (var i = 0; i < 3; i++) {
+          $scope.markers.push({
+            id: $scope.markers.length,
+            latitude: lat + (i * 0.002),
+            longitude: long + (i * 0.002),
+            title: 'm' + i
+          })
+        }
+
+        $ionicScrollDelegate.resize();
+        $ionicSlideBoxDelegate.update();
+
+      }, function(err) {
+        // error
+      });
+
+  })

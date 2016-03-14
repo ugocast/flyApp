@@ -36,6 +36,18 @@ angular.module('starter.services', ['ngResource'])
       }
     });
   }
+]).factory('Wheater', ['$resource',
+  function($resource) {
+    return $resource('http://api.openweathermap.org/data/2.5/weather?lat=:lat&lon=:long&appid=1139cd761d2a7e1e0f8204d97fbcabe2&lang=es&units=metric', {}, {
+      query: {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        isArray: false
+      }
+    });
+  }
 ])
 
 ;

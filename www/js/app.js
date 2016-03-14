@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services','uiGmapgoogle-maps'])
 
 .run(function($ionicPlatform, $ionicPopup, $ionicLoading, $rootScope) {
   $ionicPlatform.ready(function() {
@@ -89,6 +89,15 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         }
       }
     })
+    .state('tab.map()', {
+      url: '/map',
+      views: {
+        'tab-map': {
+          templateUrl: 'templates/tab-map.html',
+          controller: 'MapCtrl'
+        }
+      }
+    })
     .state('tab.place-detail', {
       url: '/places/:placeId',
       views: {
@@ -121,13 +130,19 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   })
 
 }]).directive('hideTabs', function($rootScope) {
-    return {
-        restrict: 'A',
-        link: function($scope, $el) {
-            $rootScope.hideTabs = true;
-            $scope.$on('$destroy', function() {
-                $rootScope.hideTabs = false;
-            });
-        }
-    };
-});
+  return {
+    restrict: 'A',
+    link: function($scope, $el) {
+      $rootScope.hideTabs = true;
+      $scope.$on('$destroy', function() {
+        $rootScope.hideTabs = false;
+      });
+    }
+  };
+}).config(
+  ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
+    GoogleMapApiProviders.configure({
+      china: true
+    });
+  }]
+);
