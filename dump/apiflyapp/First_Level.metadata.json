@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "apiflyapp.First_Level", "name" : "_id_" } ] }

@@ -1,5 +1,14 @@
 # Archivos basura Mac
 .DS_Store
 # build app
-/platforms
-/plugins
+*.keystore
+*.sw*
+platforms/*
+plugins/*
+app/bower_components/*
+node_modules/*
+.tmp/
+.DS_Store
+*.log
+
+

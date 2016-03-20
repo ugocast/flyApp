@@ -135,7 +135,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     link: function($scope, $el) {
       $rootScope.hideTabs = true;
       $scope.$on('$destroy', function() {
-        $rootScope.hideTabs = false;
+        $rootScope.hideTabs = true;
       });
     }
   };
