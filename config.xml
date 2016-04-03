@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.flyapp799970" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>flyApp</name>
+  <name>Red Water</name>
   <description>
     An Ionic Framework and Cordova project.
   </description>
@@ -9,6 +9,18 @@
   </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="http://*/*"/>
+  <allow-navigation href="https://*/*"/>
+  <!-- Allow links to web pages to open in a browser -->
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <!-- Allow SMS links to open messaging app -->
+  <allow-intent href="sms:*"/>
+  <!-- Allow tel: links to open the dialer -->
+  <allow-intent href="tel:*"/>
+  <!-- Allow geo: links to open maps -->
+  <allow-intent href="comgooglemaps:*"/>
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -66,11 +78,6 @@
     <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
-    <config-file platform="ios" target="*-Info.plist" parent="NSAppTransportSecurity">
-      <dict>
-        <key>NSAllowsArbitraryLoads</key><true/>
-      </dict>
-    </config-file>
   </platform>
   <icon src="resources/ios/icon/icon-small@3x.png"/>
 </widget>

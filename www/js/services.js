@@ -48,6 +48,18 @@ angular.module('starter.services', ['ngResource'])
       }
     });
   }
+]).factory('Distance', ['$resource',
+  function($resource) {
+    return $resource('https://maps.googleapis.com/maps/api/distancematrix/json?origins=:origins&destinations=:destinations', {}, {
+      query: {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        isArray: false
+      }
+    });
+  }
 ])
 
 ;

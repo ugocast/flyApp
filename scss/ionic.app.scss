@@ -1,37 +1,41 @@
-
-$custom-nav:                      #4F5B4B;
-$custom-nav-color:                #ffffff;
-
-$base-background-color:           #ffffff !default;
-$base-color:                      #666666 !default;
-$font-size-default:               15px;
-$line-height-default:             24px;
-
+$custom-nav: #009688;
+$custom-nav-color: #ffffff;
+$base-background-color: #ffffff !default;
+$base-color: #666666 !default;
+$font-size-default: 15px;
+$line-height-default: 24px;
+$bar-height: 44px !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
-
 /* layout front tabs places */
-
-.custom-bar{
+.custom-bar {
   background-color: $custom-nav;
   color: $custom-nav-color;
   background-image: none;
 }
-
-.place-info{
+.title {
+  img {
+    margin: 8px 0 0;
+  }
+}
+.back-text {
+  color: #fff;
+}
+.ion-ios-arrow-back {
+  color: #fff;
+}
+.place-info {
   position: absolute;
   bottom: 0;
   padding: 15px;
-  .left{
+  .left {
     text-align: left;
     padding: 0;
     top: 5px;
     position: relative;
-    h2{
+    h2 {
       padding: 0;
       margin: 0;
       color: #fff;
@@ -39,10 +43,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
       font-weight: 500;
     }
   }
-  .right{
+  .right {
     float: right;
     text-align: right;
-    .rating{
+    .rating {
       background-color: #F56C0E;
       color: #fff;
       padding: 5px 10px;
@@ -51,48 +55,39 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
   }
 }
-
-.place-details{
-  padding: 10px 10px;
+.place-details {
+  padding: 10px;
 }
-
-.item-icon-left{
+.item-icon-left {
   padding-left: 15px;
   color: #4A90E2!important;
   border-top: 1px dashed #cecece;
 }
-
 /* Tips */
-
-.tips{
+.tips {
   background-color: #FCF27B;
   margin: 10px;
   border-radius: 3px;
-  padding: 10px 10px 40px 10px;
+  padding: 10px 10px 40px;
 }
-
-.tip-ico{
+.tip-ico {
   background-color: #fff;
   color: #222;
   padding: 5px 10px;
   border-radius: 3px;
   font-weight: 600;
 }
-
-.tip-info{
+.tip-info {
   padding: 0 50px;
   text-align: center;
   margin: -20px 20px;
 }
-
-.button-tip{
+.button-tip {
   border-radius: 3px;
   font-weight: 500;
 }
-
 /* Banners */
-
-.banner{
+.banner {
   background-color: #A5B3B9;
   text-align: center;
   color: #fff;
@@ -102,8 +97,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   min-height: 150px;
 }
 /* icons */
-
-.custom-icons{
+.custom-icons {
   font-size: 24px;
   color: #34AA05;
   vertical-align: middle;
@@ -112,8 +106,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   position: relative;
   top: -1px;
 }
-
-.ico-images-details{
+.ico-images-details {
   font-size: 24px;
   color: #4A90E2;
   vertical-align: middle;
@@ -122,12 +115,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   position: relative;
   top: -3px;
 }
-
-.icons-details{
+.icons-details {
   text-align: center;
 }
-
-.details-icons{
+.details-icons {
   font-size: 24px;
   color: #818589;
   display: inline-block;
@@ -136,125 +127,115 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   text-align: center;
   top: 3px;
 }
-
-.icons-info{
+.icons-info {
   padding-left: 20px;
 }
-
-.detail-icon{
+.detail-icon {
   color: #fff;
   font-size: 32px;
   display: inline-block;
   position: relative;
   top: -7px;
 }
-
-.ion-levels{
+.ion-levels {
   font-size: 32px;
   color: #fff;
 }
 /* info tabs details */
-
-.header-details{
-  border-bottom: 3px solid #34AA00;
-  h2{
+.header-details {
+  border-bottom: 3px solid $positive;
+  h2 {
     font-size: 13px;
     text-transform: uppercase;
     color: #3B453B;
     font-weight: 600;
-
   }
 }
-
-.info-titles{
+.info-titles {
   margin-bottom: 25px;
-  h3{
+  h3 {
     color: #4A90E2;
     font-weight: 500;
   }
 }
-
 /* Fonts */
-
-p{
+p {
   font-size: $font-size-default;
   line-height: $line-height-default;
   color: $base-color;
-
 }
-
-strong{
+strong {
   color: #4A90E2;
   font-weight: 500;
 }
-
 /* Access */
-
-.access-info{
+.access-info {
   margin: 20px 0;
   border-bottom: 1px dashed #cecece;
   padding: 20px 0;
-  h2{
+  h2 {
     color: #222;
     font-weight: 600;
   }
 }
-
-.access-btn{
+.access-btn {
   margin: 25px 0;
   padding: 3px 20px;
   font-weight: 500;
   text-transform: uppercase;
 }
-
-.near-places{
+.near-places {
   margin: 10px 0;
   padding: 0;
 }
-
-
 /* Reviews */
-.reviews-body{
+.reviews-body {
   margin: 15px;
   border-bottom: 1px dashed #cecece;
   padding-bottom: 10px;
 }
-
-.reviews-body-last{
+.reviews-body-last {
   margin: 15px;
   border-bottom: none;
   padding-bottom: 10px;
 }
-
-.custom-button{
+.custom-button {
   border-radius: 3px;
   font-weight: 500;
   background-color: #F56B00;
 }
-
-.item-avatar{
+.item-avatar {
   border: none;
-  h2{
+  h2 {
     font-weight: 500;
     color: #222;
   }
-  h3{
+  h3 {
     font-weight: normal;
     color: #B6B6B6;
   }
 }
-
 /* Slider */
-
-.slider-pager{
+.slider-pager {
   overflow: hidden;
   text-indent: -9999px;
 }
-
-.avatar-body{
-  padding: 5px 15px 15px 15px;
-  p{
+.avatar-body {
+  padding: 5px 15px 15px;
+  p {
     margin: 0;
     padding: 0;
+  }
+}
+
+.icon-list{
+  border-bottom: 1px solid #ECECEC;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  span{
+    top: -15px;
+    position: relative;
+    padding: 10px;
+    font-weight: 500;
   }
 }

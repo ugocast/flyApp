@@ -1,0 +1,375 @@
+
+<ion-view>
+  <ion-nav-title>
+    {{place.name}}
+  </ion-nav-title>
+  <ion-content class="">
+    <div class="">
+      <div class="">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="placeImage in place.url_images_detail">
+            <img class="full-image" ng-src="img/{{placeImage}}">
+            <div class="row place-info">
+              <div class="left col-80">
+                <h2>{{place.name}}</h2>
+              </div>
+              <div class="col"><a href=""><i class="ion-map detail-icon"></i></a></div>
+              <div class="col right">
+                <span class="rating">4.8</span>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+    <div class="row icons-details">
+      <div class="col">
+        <img ng-src="img/front/ico1.png" width="60" height="60">
+        <span>Navegable</span>
+      </div>
+      <div class="col">
+        <img ng-src="img/front/ico2.png" width="60" height="60">
+        <span>Orilla</span>
+      </div>
+      <div class="col">
+        <img ng-src="img/front/ico3.png" width="60" height="60">
+        <span>Nº5</span>
+      </div>
+      <div class="col">
+        <img ng-src="img/front/ico4.png" width="60" height="60">
+        <span>Río</span>
+      </div>
+      <div class="col">
+        <img ng-src="img/front/ico5.png" width="60" height="60">
+        <span>Privado</span>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Descripción
+        </h2>
+      </div>
+      <div class="item-body">
+        <p>{{place.description}}</p>
+        <div class="icons-info">
+          <p>
+            <i class="ion-leaf details-icons"></i>
+            <strong>Tipo de vegetación :</strong>
+            <span ng-repeat="vegetation in place.vegetation">
+              {{vegetation}}{{$last ? "" : ","}}
+            </strong>
+          </p>
+          <p>
+            <i class="ion-leaf details-icons"></i>
+            <strong>Fauna asociada :</strong>
+            <span ng-repeat="fauna in place.fauna">
+              {{fauna}}{{$last ? "" : ","}}
+            </strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Informacion
+        </h2>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="">
+          <div class="item">
+            <p>
+              <i class="ion-android-pin details-icons"></i>
+              <strong>Ciudad :</strong>
+              <span>{{place.city}}</span>
+            </p>
+            <p>
+              <i class="ion-android-map details-icons"></i>
+              <strong>Cuenca :</strong>
+              <span>{{place.watershed}}</span>
+            </p>
+            <p>
+              <i class="ion-shuffle details-icons"></i>
+              <strong>Cuerpo o curso de Agua :</strong>
+              <span>{{place.body_of_water_type}}</span>
+            </p>
+            <p>
+              <i class="ion-waterdrop details-icons"></i>
+              <strong>Caudal :</strong>
+              <span>{{place.flow}}</span>
+            </p>
+            <p>
+              <i class="ion-arrow-down-c details-icons"></i>
+              <strong>Profundidad :</strong>
+              <span>{{place.depth}}</span>
+            </p>
+            <p>
+              <i class="ion-flash details-icons"></i>
+              <strong>Turbiedad :</strong>
+              <span>{{place.turbidity}}</span>
+            </p>
+            <p>
+              <i class="ion-thermometer details-icons"></i>
+              <strong>Tº promedio :</strong>
+              <span ng-repeat="average_temperature in place.average_temperature">
+                {{average_temperature}}{{$last ? "" : ","}}
+              </span>
+            </p>
+            <p>
+              <i class="ion-thermometer details-icons"></i>
+              <strong>Tº promedio del agua :</strong>
+              <span ng-repeat="average_water_temperature in place.average_water_temperature">
+                {{average_water_temperature}}{{$last ? "" : ","}}
+              </span>
+            </p>
+            <p>
+              <i class="ion-ios-analytics details-icons"></i>
+              <strong>Tipos de fondo :</strong>
+              <span ng-repeat="funds in place.funds">
+                {{funds}}{{$last ? "" : ","}}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Principales especies
+        </h2>
+      </div>
+      <div class="item item-body">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="fish in place.fishes">
+            <div class="">
+              <div class="info-titles">
+                <p><strong>{{fish.name}}:</strong> {{fish.scientific_name}}</p>
+              </div>
+              <div class="item-image">
+                <img class="full-image" ng-src="img/{{fish.url_images_front}}">
+              </div>
+              <div class="item-body">
+                <p>{{fish.description}}</p>
+                <p>
+                  <strong>Peso promedio :</strong>
+                  {{fish.average_weight}}
+                </p>
+                <p>
+                  <strong>Tamaño promedio :</strong>
+                  {{fish.average_size}}
+                </p>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Accesos
+        </h2>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="row access-info" ng-repeat="access in place.access">
+          <div class="col">
+            <img ng-src="img/front/ico-access.png" width="35" height="35">
+          </div>
+          <div class="col-80">
+            <h2>{{access.title}}</h2>
+            <p>{{access.desciption}}</p>
+            <br/>
+            <p>
+              <i class="ion-android-car details-icons"></i>
+              <strong>Tipo de acceso vehicular :</strong>
+              <span ng-repeat="vehicle_access in access.vehicle_access">
+                {{vehicle_access}}{{$last ? "" : ","}}
+              </span>
+            </p>
+            <p>
+              <i class="ion-android-walk details-icons"></i>
+              <strong>Tipo de acceso peatonal :</strong>
+              <span ng-repeat="pedestrian_access in access.pedestrian_access">
+                {{pedestrian_access}}{{$last ? "" : ","}}
+              </span>
+            </p>
+            <div class="">
+              <button class="button button-small button-dark access-btn">
+                Ver en Mapa
+              </button>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Alrededores
+        </h2>
+      </div>
+      <div class="item item-body">
+        <div class="card near-places">
+          <div class="item item-image">
+            <img ng-src="img/{{place.url_images_front}}">
+            <div class="row place-info">
+              <div class="left col-80">
+                <h2>{{place.name}}</h2>
+              </div>
+              <div class="col right">
+                <span class="rating">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="row place-details">
+            <div class="col"><i class="icon ion-ios-sunny custom-icons"></i> Bosque, Montaña</div>
+          </div>
+        </div>
+        <div class="card near-places">
+          <div class="item item-image">
+            <img ng-src="img/{{place.url_images_front}}">
+            <div class="row place-info">
+              <div class="left col-80">
+                <h2>{{place.name}}</h2>
+              </div>
+              <div class="col right">
+                <span class="rating">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="row place-details">
+            <div class="col"><i class="icon ion-ios-sunny custom-icons"></i> Bosque, Montaña</div>
+          </div>
+        </div>
+        <div class="card near-places">
+          <div class="item item-image">
+            <img ng-src="img/{{place.url_images_front}}">
+            <div class="row place-info">
+              <div class="left col-80">
+                <h2>{{place.name}}</h2>
+              </div>
+              <div class="col right">
+                <span class="rating">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="row place-details">
+            <div class="col"><i class="icon ion-ios-sunny custom-icons"></i> Bosque, Montaña</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Reseñas
+        </h2>
+      </div>
+      <div class="reviews-body">
+        <div class="item item-avatar">
+          <img ng-src="img/front/avatar.jpg">
+          <h2>Marty McFly</h2>
+          <h3>November 05, 1955</h3>
+        </div>
+        <div class="item-body avatar-body">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a tabs, icons aligned left, within the card-footer.
+          </p>
+        </div>
+      </div>
+      <div class="reviews-body">
+        <div class="item item-avatar">
+          <img ng-src="img/front/avatar.jpg">
+          <h2>Marty McFly</h2>
+          <h3>November 05, 1955</h3>
+        </div>
+        <div class="item-body avatar-body">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a tabs, icons aligned left, within the card-footer.
+          </p>
+        </div>
+      </div>
+      <div class="reviews-body-last">
+        <div class="item item-avatar">
+          <img ng-src="img/front/avatar.jpg">
+          <h2>Marty McFly</h2>
+          <h3>November 05, 1955</h3>
+        </div>
+        <div class="item-body avatar-body">
+          <p>
+            This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+            the content is from a card-body consisting of an image and paragraph text. The footer
+            consists of a tabs, icons aligned left, within the card-footer.
+          </p>
+        </div>
+      </div>
+      <div class="reviews-body">
+        <button class="button button-block button-positive">
+          AGREGAR RESEÑA
+        </button>
+      </div>
+    </div>
+
+<!--Hola!, acá comento los insectos-->
+    <!-- <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Principales insectos
+        </h2>
+      </div>
+      <div class="item item-body">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="insect in place.insects">
+            <div class="">
+              <div class="info-titles">
+                <p><strong>{{insect.name}}:</strong> {{insect.insect_type}}</p>
+              </div>
+              <div class="item item-image">
+                <img class="full-image" ng-src="img/{{insect.url_images_front}}">
+              </div>
+              <div class="item item-body">
+                <p>{{insect.description}}</p>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div> -->
+
+<!--Hola!, acá esta comentado las moscas-->
+
+    <!-- <div class="list card">
+      <div class="item header-details">
+        <h2 class="text-left">
+          Principales moscas de pescas
+        </h2>
+      </div>
+      <div class="item item-body">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="flyFishing in place.flies">
+            <div class="">
+              <div class="info-titles">
+                <p><strong>{{flyFishing.name}}:</strong> {{flyFishing.fly_type}}</p>
+              </div>
+              <div class="">
+                <img class="full-image" ng-src="img/{{flyFishing.url_images_front}}">
+              </div>
+              <div class="item-body">
+                {{flyFishing.description}}
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div> -->
+    </div>
+  </ion-content>
+</ion-view>

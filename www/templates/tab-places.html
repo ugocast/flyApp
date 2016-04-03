@@ -1,13 +1,11 @@
 <ion-view hide-tabs>
   <ion-nav-title>
-   Patagonia de Chile
-      <!--<a class="button button-clear" href="#/tab/regulations">
-        <i class="ion-levels navbar-icon"></i>
-      </a>-->
-  </ion-nav-title>
-  <ion-content>
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-    <!--<ion-list>
+    <img ng-src="img/front/logo-v2.png" width="120" height="25"></div>
+  <!--<a class="button button-clear" href="#/tab/regulations"><i class="ion-levels navbar-icon"></i></a>-->
+</ion-nav-title>
+<ion-content>
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+  <!--<ion-list>
     <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
     <img ng-src="{{chat.face}}">
     <h2>{{chat.name}}</h2>
@@ -19,41 +17,43 @@
   </ion-option-button>
 </ion-item>
 </ion-list>-->
-    <div class="list card" ng-repeat="place in places">
-      <div class="item item-image">
-        <img ng-src="{{place.url_images_front}}">
-        <div class="row place-info">
-          <div class="left col-80">
-            <h2>{{place.name}}</h2>
-          </div>
-          <!--<div class="col right">
+  <div class="list card" ng-repeat="place in places">
+    <div class="item item-image">
+      <img ng-src="{{resizeCloudinaryImage(place.url_images_front,'/c_crop,h_280,w_640')}}">
+      <div class="row place-info">
+        <div class="left col-80">
+          <h2>
+            <bold>{{place.name}}</bold>
+          </h2>
+        </div>
+        <!--<div class="col right">
             <span class="rating">4.8</span>
           </div>-->
-        </div>
       </div>
-      <div class="row place-details">
-        <div class="col">
-          <i class="icon ion-ios-sunny custom-icons"></i>
-          Bosque, Montaña</div>
-        <div class="col">
-          <i class="icon ion-android-car custom-icons"></i>
-          500 Kms Temuco</div>
-      </div>
-      <a class="item item-icon-left links" href="#/tab/places/{{place.id}}">
-        <i class="ion-images ico-images-details"></i>Detalles
-      </a>
     </div>
-
-    <div class="tips">
+    <div class="row place-details">
       <div class="col">
-        <span class="tip-ico">TIP</span>
-      </div>
-      <div class="tip-info">
-        Acá podemos incluir algun tipo de tips o notificación de la aplicación
-        <button class="button button-block button-dark button-tip">NOTIFICARME</button>
-      </div>
+        {{place.address}}</div>
+      <div class="col" ng-if="locationEnable">
+        <i class="icon ion-navigate positive"></i>
+        {{distanceFromCurrent(place.coordinates) | number:0}}
+        Kms</div>
     </div>
+    <a class="item item-icon-left links" ng-href="#/tab/places/{{place.id}}">
+      <i class="ion-images ico-images-details"></i>Detalles
+    </a>
+  </div>
 
-    <div class="banner"></div>
-  </ion-content>
+  <!--<div class="tips">
+    <div class="col">
+      <span class="tip-ico">TIP</span>
+    </div>
+    <div class="tip-info">
+      Acá podemos incluir algun tipo de tips o notificación de la aplicación
+      <button class="button button-block button-dark button-tip">NOTIFICARME</button>
+    </div>
+  </div>-->
+
+<!--<div class="banner"></div>-->
+</ion-content>
 </ion-view>

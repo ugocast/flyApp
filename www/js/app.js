@@ -55,7 +55,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
 })
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$compileProvider) {
+
+
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|javascript|comgooglemaps):/);
+
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -89,10 +93,10 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         }
       }
     })
-    .state('tab.map()', {
-      url: '/map',
+    .state('tab.map', {
+      url: '/places/:placeId/map',
       views: {
-        'tab-map': {
+        'tab-places': {
           templateUrl: 'templates/tab-map.html',
           controller: 'MapCtrl'
         }
