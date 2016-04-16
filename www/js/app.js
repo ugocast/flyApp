@@ -70,7 +70,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
-    templateUrl: 'templates/tabs.html'
+    abstract: true,
+    templateUrl: 'templates/menu.html',
   })
 
   // Each tab has its own nav history stack:
@@ -79,7 +80,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
   .state('tab.places', {
       url: '/places',
       views: {
-        'tab-places': {
+        'menuContent': {
           templateUrl: 'templates/tab-places.html',
           controller: 'PlacesCtrl'
         }
@@ -87,7 +88,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }).state('tab.regulations', {
       url: '/regulations',
       views: {
-        'tab-regulations': {
+        'menuContent': {
           templateUrl: 'templates/tab-regulations.html',
           controller: 'GeneralRegulationCtrl'
         }
@@ -96,16 +97,34 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     .state('tab.map', {
       url: '/places/:placeId/map',
       views: {
-        'tab-places': {
+        'menuContent': {
           templateUrl: 'templates/tab-map.html',
           controller: 'MapCtrl'
+        }
+      }
+    })
+    .state('tab.condition', {
+      url: '/condition',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/tab-condition.html',
+          controller: 'ConditionCtrl'
+        }
+      }
+    })
+    .state('tab.language', {
+      url: '/language',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/tab-language.html',
+          controller: 'LanguageCtrl'
         }
       }
     })
     .state('tab.place-detail', {
       url: '/places/:placeId',
       views: {
-        'tab-places': {
+        'menuContent': {
           templateUrl: 'templates/place-detail.html',
           controller: 'PlaceDetailCtrl'
         }

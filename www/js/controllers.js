@@ -95,6 +95,14 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('ConditionCtrl', function($scope, $rootScope, GeneralRegulations) {
+
+})
+
+.controller('LanguageCtrl', function($scope, $rootScope, GeneralRegulations) {
+
+})
+
 .controller('PlaceDetailCtrl', function($scope, $rootScope, $stateParams, Place, Wheater, $ionicSlideBoxDelegate, $ionicScrollDelegate, $cordovaInAppBrowser, $cordovaGeolocation,$log) {
 
     Place.query({
