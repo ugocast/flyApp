@@ -21,13 +21,13 @@ The Friends service returns an array of friend data
               </h2>
             </div>
             <div class="col">
-              <a ng-href="#/tab/places/{{place.id}}/map">
+              <a ng-href="comgooglemaps://?daddr={{place.coordinates[0].lat}},{{place.coordinates[0].lng}}" target="_system">
                 <i class="ion-map detail-icon"></i>
               </a>
             </div>
             <!--<div class="col right">
-                <span class="rating">4.8</span>
-              </div>-->
+              <span class="rating">4.8</span>
+            </div>-->
           </div>
         </ion-slide>
         <ion-slide>
@@ -39,18 +39,42 @@ The Friends service returns an array of friend data
               </h2>
             </div>
             <div class="col">
-              <a ng-href="#/tab/places/{{place.id}}/map">
+              <a ng-href="comgooglemaps://?daddr={{place.coordinates[0].lat}},{{place.coordinates[0].lng}}" target="_system">
                 <i class="ion-map detail-icon"></i>
               </a>
+              <!--<a ng-href="#/tab/places/{{place.id}}/map"></a>-->
             </div>
             <!--<div class="col right">
-                <span class="rating">4.8</span>
-              </div>-->
+              <span class="rating">4.8</span>
+            </div>-->
           </div>
         </ion-slide>
       </ion-slide-box>
     </div>
   </div>
+
+  <!--<div class="row icons-details">
+    <div class="col">
+      <img ng-src="img/front/ico1.png" width="60" height="60">
+      <span>Navegable</span>
+    </div>
+    <div class="col">
+      <img ng-src="img/front/ico2.png" width="60" height="60">
+      <span>Orilla</span>
+    </div>
+    <div class="col">
+      <img ng-src="img/front/ico3.png" width="60" height="60">
+      <span>Nº5</span>
+    </div>
+    <div class="col">
+      <img ng-src="img/front/ico4.png" width="60" height="60">
+      <span>Río</span>
+    </div>
+    <div class="col">
+      <img ng-src="img/front/ico5.png" width="60" height="60">
+      <span>Privado</span>
+    </div>
+  </div>-->
 
   <div class="list card">
     <div class="item header-details">
@@ -58,62 +82,57 @@ The Friends service returns an array of friend data
         {{place.address}}
       </h2>
     </div>
-    <div class="item-body">
-      <p>{{place.description}}</p>
-      <a ng-href="comgooglemaps://?daddr={{place.coordinates[0].lat}},{{place.coordinates[0].lng}}" target="_system" class="button button-small button-dark access-btn center">
-        ¿Como llegar?
-      </a>
-    </div>
   </div>
+</div>
 </div>
 </div>
 
 <div class="list card">
 <div class="item header-details">
-  <h2 class="text-left">
-    Informacion de pesca
-  </h2>
+<h2 class="text-left">
+  Informacion de pesca
+</h2>
 </div>
 <div class="item-body">
-  <p>{{place.description_where_fish}}</p>
-  <div class="item">
-    <div class="icon-list">
-      <img ng-src="img/front/ico9.png" width="40" height="40">
-      <span>Caudal :
-        {{currentMonthlyAverage(place.monthly_average_flow)}}
-        m3/seg</span>
-    </div>
-    <div class="icon-list">
-      <img ng-src="img/front/ico10.png" width="40" height="40">
-      <span>Profundidad :
-        {{place.depth}}
-        mts</span>
-    </div>
-    <div class="icon-list">
-      <img ng-src="img/front/ico11.png" width="40" height="40">
-      <span>Turbiedad :
-        {{currentMonthlyAverage(place.monthly_average_turbidity)}}
-        ntu</span>
-    </div>
-    <div class="icon-list">
-      <img ng-src="img/front/ico13.png" width="40" height="40">
-      <span>Tº del agua :
-        {{currentMonthlyAverage(place.monthly_average_water_temperature)}}
-        º</span>
-    </div>
-    <div class="icon-list">
-      <img ng-src="img/front/ico12.png" width="40" height="40">
-      <span>Tº ambiente actual :
-        {{wheater.main.temp}}
-        º</span>
-    </div>
-    <div class="icon-list">
-      <img ng-src="img/front/ico15.png" width="40" height="40">
-      <span>Viento actual :
-        {{wheater.wind.speed}}
-        mts/seg</span>
-    </div>
+<p>{{place.description_where_fish}}</p>
+<div class="item">
+  <div class="icon-list">
+    <img ng-src="img/front/ico9.png" width="40" height="40">
+    <span>Caudal :
+      {{currentMonthlyAverage(place.monthly_average_flow)}}
+      m3/seg</span>
   </div>
+  <div class="icon-list">
+    <img ng-src="img/front/ico10.png" width="40" height="40">
+    <span>Profundidad :
+      {{place.depth}}
+      mts</span>
+  </div>
+  <div class="icon-list">
+    <img ng-src="img/front/ico11.png" width="40" height="40">
+    <span>Turbiedad :
+      {{currentMonthlyAverage(place.monthly_average_turbidity)}}
+      ntu</span>
+  </div>
+  <div class="icon-list">
+    <img ng-src="img/front/ico13.png" width="40" height="40">
+    <span>Tº del agua :
+      {{currentMonthlyAverage(place.monthly_average_water_temperature)}}
+      º</span>
+  </div>
+  <div class="icon-list">
+    <img ng-src="img/front/ico12.png" width="40" height="40">
+    <span>Tº ambiente actual :
+      {{wheater.main.temp}}
+      º</span>
+  </div>
+  <div class="icon-list">
+    <img ng-src="img/front/ico15.png" width="40" height="40">
+    <span>Viento actual :
+      {{wheater.wind.speed}}
+      mts/seg</span>
+  </div>
+</div>
 </div>
 </div>
 
@@ -129,67 +148,67 @@ The Friends service returns an array of friend data
 
 <div class="list card">
 <div class="item header-details">
-  <h2 class="text-left">
-    Principales especies
-  </h2>
+<h2 class="text-left">
+  Principales especies
+</h2>
 </div>
-<div class="item item-body">
-  <ion-slide-box on-slide-changed="slideHasChanged($index)">
-    <ion-slide ng-repeat="fish in place.fishes">
-      <div class="">
-        <div class="info-titles">
-          <p>
-            <strong>{{fish.name}}</strong>
-          </p>
-          {{fish.scientific_name}}
-        </div>
-        <div class="item-image">
-          <img class="full-image" ng-src="{{resizeCloudinaryImage(fish.url_images_front,'/c_crop,h_200,w_640')}}">
-        </div>
-        <div class="item-body">
-          <p>{{fish.description}}</p>
-          <p>
-            <i class="ion-android-archive details-icons"></i>
-            <strong>Peso promedio :</strong>
-            {{fish.average_weight}}
-          </p>
-          <p>
-            <i class="ion-crop details-icons"></i>
-            <strong>Tamaño promedio :</strong>
-            {{fish.average_size}}
-          </p>
-        </div>
+<div class="item-body">
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
+  <ion-slide ng-repeat="fish in place.fishes">
+    <div class="">
+      <div class="info-titles">
+        <p>
+          <strong>{{fish.name}}</strong>
+        </p>
+        {{fish.scientific_name}}
       </div>
-    </ion-slide>
-  </ion-slide-box>
+      <div class="item-image">
+        <img class="full-image" ng-src="{{resizeCloudinaryImage(fish.url_images_front,'/c_crop,h_200,w_640')}}">
+      </div>
+      <div class="item-body">
+        <p>{{fish.description}}</p>
+        <p>
+          <i class="ion-android-archive details-icons"></i>
+          <strong>Peso promedio :</strong>
+          {{fish.average_weight}}
+        </p>
+        <p>
+          <i class="ion-crop details-icons"></i>
+          <strong>Tamaño promedio :</strong>
+          {{fish.average_size}}
+        </p>
+      </div>
+    </div>
+  </ion-slide>
+</ion-slide-box>
 </div>
 </div>
 
 <div class="list card">
 <div class="item header-details">
-  <h2 class="text-left">
-    Moscas recomendadas
-  </h2>
+<h2 class="text-left">
+  Moscas recomendadas
+</h2>
 </div>
-<div class="item item-body">
-  <ion-slide-box on-slide-changed="slideHasChanged($index)">
-    <ion-slide ng-repeat="flyFishing in place.flies">
-      <div class="">
-        <div class="info-titles">
-          <p>
-            <strong>{{flyFishing.name}}</strong>
-          </p>
-          {{flyFishing.fly_type}}
-        </div>
-        <div class="">
-          <img class="full-image" ng-src="{{resizeCloudinaryImage(flyFishing.url_images_front,'/c_crop,h_200,w_640')}}">
-        </div>
-        <div class="item-body">
-          {{flyFishing.description}}
-        </div>
+<div class="item-body">
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
+  <ion-slide ng-repeat="flyFishing in place.flies">
+    <div class="">
+      <div class="info-titles">
+        <p>
+          <strong>{{flyFishing.name}}</strong>
+        </p>
+        {{flyFishing.fly_type}}
       </div>
-    </ion-slide>
-  </ion-slide-box>
+      <div class="">
+        <img class="full-image" ng-src="{{resizeCloudinaryImage(flyFishing.url_images_front,'/c_crop,h_200,w_640')}}">
+      </div>
+      <div class="item-body">
+        {{flyFishing.description}}
+      </div>
+    </div>
+  </ion-slide>
+</ion-slide-box>
 </div>
 </div>
 </ion-content>

@@ -1,9 +1,22 @@
 <ion-view hide-tabs>
-  <ion-nav-title>
-    <img ng-src="img/front/logo-v2.png" width="120" height="25"></div>
-  <!--<a class="button button-clear" href="#/tab/regulations"><i class="ion-levels navbar-icon"></i></a>-->
-</ion-nav-title>
-<ion-content>
-
-</ion-content>
+    <ion-nav-title>
+        <img ng-src="img/front/logo-v2.png" width="120" height="25"></div>
+        <!--<a class="button button-clear" href="#/tab/regulations"><i class="ion-levels navbar-icon"></i></a>-->
+    </ion-nav-title>
+    <ion-content>
+        <div class="content language">
+            <h1>Seleccionar Idioma</h1>
+        </div>
+        <ion-list>
+            <ion-radio ng-model="choice" ng-value="'A'"><img ng-src="img/front/flag1.png" width="34" height="20"><span class="lg">Inglés</span></ion-radio>
+            <ion-radio ng-model="choice" ng-value="'B'"><img ng-src="img/front/flag2.png" width="34" height="20"><span class="lg">Español (Latinoámerica)</span></ion-radio>
+            <ion-radio ng-model="choice" ng-value="'C'"><img ng-src="img/front/flag3.png" width="34" height="20"><span class="lg">Francés</span></ion-radio>
+            <ion-radio ng-model="choice" ng-value="'D'"><img ng-src="img/front/flag4.png" width="34" height="20"><span class="lg">Portugués</span></ion-radio>
+        </ion-list>
+        <div class="confirm">
+            <button class="button button-block button-confirm">
+                CONFIRMAR
+            </button>
+        </div>
+    </ion-content>
 </ion-view>

@@ -17,6 +17,7 @@
   </ion-option-button>
 </ion-item>
 </ion-list>-->
+
   <div class="list card" ng-repeat="place in places">
     <div class="item item-image">
       <img ng-src="{{resizeCloudinaryImage(place.url_images_front,'/c_crop,h_280,w_640')}}">
@@ -26,9 +27,9 @@
             <bold>{{place.name}}</bold>
           </h2>
         </div>
-        <!--<div class="col right">
+        <div class="col right">
             <span class="rating">4.8</span>
-          </div>-->
+        </div>
       </div>
     </div>
     <div class="row place-details">
@@ -44,7 +45,7 @@
     </a>
   </div>
 
-  <!--<div class="tips">
+  <div class="tips">
     <div class="col">
       <span class="tip-ico">TIP</span>
     </div>
@@ -52,7 +53,7 @@
       Acá podemos incluir algun tipo de tips o notificación de la aplicación
       <button class="button button-block button-dark button-tip">NOTIFICARME</button>
     </div>
-  </div>-->
+  </div>
 
 <!--<div class="banner"></div>-->
 </ion-content>

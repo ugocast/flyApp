@@ -9717,7 +9717,7 @@ a.button {
 
 /* layout front tabs places */
 .custom-bar {
-  background-color: #009688;
+  background-color: #188330;
   color: #ffffff;
   background-image: none; }
 
@@ -9733,7 +9733,8 @@ a.button {
 .place-info {
   position: absolute;
   bottom: 0;
-  padding: 15px; }
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.4); }
   .place-info .left {
     text-align: left;
     padding: 0;
@@ -9749,7 +9750,7 @@ a.button {
     float: right;
     text-align: right; }
     .place-info .right .rating {
-      background-color: #F56C0E;
+      background-color: #FF5400;
       color: #fff;
       padding: 5px 10px;
       border-radius: 2px;
@@ -9930,3 +9931,57 @@ strong {
     position: relative;
     padding: 10px;
     font-weight: 500; }
+
+.button-clear {
+  color: #fff !important; }
+
+.sidebar-header {
+  color: #fff; }
+
+.language {
+  margin: 50px 0;
+  text-align: center; }
+  .language h1 {
+    color: #222;
+    font-size: 24px; }
+
+.confirm {
+  margin: 40px 0;
+  padding: 0 15px; }
+
+.button-confirm {
+  border-radius: 2px;
+  background: #007219;
+  color: #fff;
+  font-weight: 500; }
+
+.button-confirm:hover {
+  color: #fff;
+  background: #0E7425; }
+
+.lg {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 10px;
+  bottom: 3px; }
+
+.terms-content {
+  background: #188330; }
+
+.terms {
+  margin: 50px 0;
+  text-align: center;
+  padding: 0 55px; }
+  .terms h1 {
+    color: #fff;
+    font-size: 24px; }
+  .terms p {
+    color: #C5E0CB;
+    font-size: 16px; }
+
+.policy {
+  text-align: center; }
+  .policy p {
+    color: #fff; }
+  .policy a {
+    color: #fff; }
